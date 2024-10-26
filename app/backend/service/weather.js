@@ -6,11 +6,11 @@ dotenv.config();
 
 const cities = ['Delhi', 'Mumbai', 'Chennai', 'Bangalore', 'Kolkata', 'Hyderabad'];
 
-const fetchWeatherData = async () => {
+const fetchWeatherData = async (open_weather_url) => {
   try {
 
     for (const city of cities) {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
+      const response = await axios.get(open_weather_url, {
         params: {
           q: city,
           appid: process.env.API_KEY,

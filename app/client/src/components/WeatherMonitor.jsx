@@ -78,38 +78,6 @@ const WeatherMonitor = () => {
     setAlerts([]);
   };
 
-  const fetchWeatherData = async () => {
-    try {
-      const fetchedData = await Promise.all(
-        cities.map(async (city) => {
-          const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b8a608dc457bacc51a75851c2fe64bad`
-          );
-          if (!response.ok) {
-            throw new Error(`Failed to fetch data for ${city}`);
-          }
-          const data = await response.json();
-
-          return {
-            city,
-            temp: data.main.temp - 273.15,
-            main: data.weather[0].main,
-            date: new Date(data.dt * 1000).toISOString().split('T')[0],
-            timestamp: new Date().toLocaleTimeString(),
-            humidity: data.main.humidity,
-            visibility: data.visibility,
-          };
-        })
-      );
-
-      setWeatherData(fetchedData);
-      fetchedData.forEach(checkWeatherAlerts);
-      
-    } catch (error) {
-      console.error('Error fetching weather data:', error);
-    }
-  };
-
   const checkWeatherAlerts = (latestWeatherData) => {
     const { city } = latestWeatherData;
     let isThresholdExceeded = false;
@@ -150,7 +118,7 @@ const WeatherMonitor = () => {
   };
 
   const triggerAlert = (weatherData) => {
-    let value, unit;
+    let value;
     switch(selectedCondition) {
       case 'temperature':
         value = `${weatherData.temp.toFixed(2)}°C (${weatherData.main})`;
@@ -173,10 +141,23 @@ const WeatherMonitor = () => {
     });
   };
 
-  useEffect(() => {
-    fetchWeatherData();
-    const intervalId = setInterval(fetchWeatherData, 30000);
-    return () => clearInterval(intervalId);
+  useEffect(() => {    
+    const eventSource = new EventSource('http://localhost:8000/api/weather/stream');
+
+    eventSource.onmessage = (event) => {
+      const fetchedData = JSON.parse(event.data);
+      setWeatherData(fetchedData);
+      fetchedData.forEach(checkWeatherAlerts);
+    };
+
+    eventSource.onerror = (error) => {
+      console.error('EventSource failed:', error);
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
+    };
   }, [thresholds, selectedCondition]);
 
   const getInputFields = () => {
@@ -255,13 +236,13 @@ const WeatherMonitor = () => {
       <div style={{ marginBottom: '20px' }}>
         <h2>Current Weather</h2>
         <div 
-    style={{ 
-      display: 'flex', 
-      gap: '10px', 
-      overflowX: 'scroll',
-      paddingBottom: '10px'  // Add some padding for easier scrolling
-    }}
-  >
+          style={{ 
+            display: 'flex', 
+            gap: '10px', 
+            overflowX: 'scroll',
+            paddingBottom: '10px'
+          }}
+        >
           {weatherData.map((data, index) => {
             let isThresholdExceeded;
             switch(selectedCondition) {
