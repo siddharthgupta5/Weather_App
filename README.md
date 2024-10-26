@@ -54,8 +54,9 @@ cd .\app\backend\
 npm install
 ```
 
-3. Update the .env file with your values for PORT and for Username and Password for the MONGO_URI (for the MongoDB database).
+3. Update the .env file with your values for OPEN_WEATHER_API_KEY, PORT and USERNAME and PASSWORD for the MONGO_URI (for the MongoDB database).
 ```js
+OPEN_WEATHER_API_KEY=...
 PORT=...
 MONGO_URI=mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.lw6c7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ```
