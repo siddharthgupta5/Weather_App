@@ -20,7 +20,25 @@ This is a real-time data processing system to monitor weather conditions and pro
 -   Tech stack: MERN stack + Chartjs. 
 -   Error handling both on the server and on the client
 
-### Installation and Setup
+## Dependencies:
+   ### Backend:
+    -  Node.js (v18.12.1)
+    -  Express (v4.x)
+    -  Axios (v1.x)
+    -  Mongoose (v6.x)
+    -  dotenv (v16.x)
+    -  Nodemon (v2.x) (for development) 
+    
+   ### Frontend:
+    -  Node.js (v18.12.1)
+    -  Express (v4.x)
+    -  Axios (v1.x)
+    -  Mongoose (v6.x)
+    -  dotenv (v16.x)
+    -  Nodemon (v2.x) (for development)
+
+
+## Installation and Setup
 
 1. Clone the repository:
 ```bash
