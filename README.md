@@ -54,10 +54,10 @@ cd .\app\backend\
 npm install
 ```
 
-3. Update the .env file
+3. Update the .env file with your values for PORT and for Username and Password for the MONGO_URI (for the MongoDB database).
 ```js
 PORT=...
-MONGO_DB_URI=...
+MONGO_URI=mongodb+srv://{$USERNAME}:{$PASSWORD}@cluster0.lw6c7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 4. Start the development server:
