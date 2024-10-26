@@ -14,6 +14,8 @@ This is a real-time data processing system to monitor weather conditions and pro
 4. Shows Historical Trends and daily Summaries: Plot graph using those datas.
 5. Alerting Thresholds: Send real-time alert messages when choosing the threshold condition, its limit and when a number of continuous limits is breached.
 6. Added Bonus Features such as Weather Forecasts and extended the aggregate and rollups to other parameters such as Humidity and Visibility.
+7. Database: This Application is using MongoDB as database.
+
 
 ## Tech Stacks:
 
@@ -30,13 +32,10 @@ This is a real-time data processing system to monitor weather conditions and pro
     -  Nodemon (v2.x) (for development) 
     
    ### Frontend:
-    -  Node.js (v18.12.1)
-    -  Express (v4.x)
+    -  React (v18.x)
     -  Axios (v1.x)
-    -  Mongoose (v6.x)
-    -  dotenv (v16.x)
-    -  Nodemon (v2.x) (for development)
-
+    -  Chart.js (v4.x)
+    -  React Chart.js (v4.x)
 
 ## Installation and Setup
 
