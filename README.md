@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a Weather Monitoring System that tracks weather data for different cities, allowing users to set temperature thresholds and receive alerts if the threshold is exceeded for two consecutive API calls (5 minutes apart).
+This project is a Weather Monitoring System that tracks weather data for different cities, allowing users to set temperature thresholds and receive alerts if the threshold is exceeded for two consecutive API calls (3 minutes apart).
 
 This is a real-time data processing system to monitor weather conditions and provide summarized insights using rollups and aggregates. The system will utilize data from the OpenWeatherMap API (https://openweathermap.org/).
 
@@ -57,7 +57,7 @@ npm install
 3. Update the .env file with your values for PORT and for Username and Password for the MONGO_URI (for the MongoDB database).
 ```js
 PORT=...
-MONGO_URI=mongodb+srv://{$USERNAME}:{$PASSWORD}@cluster0.lw6c7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGO_URI=mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.lw6c7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 4. Start the development server:
