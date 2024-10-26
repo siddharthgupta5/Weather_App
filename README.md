@@ -37,6 +37,8 @@ This is a real-time data processing system to monitor weather conditions and pro
     -  Chart.js (v4.x)
     -  React Chart.js (v4.x)
 
+Here all the enclosed braces indicate the version of these Tech Stacks used.
+
 ## Prerequisites
 - Ensure you have Node.js and npm installed.
 
@@ -84,8 +86,6 @@ npm install
 npm start
 ```
 
-## API Overview
--  
 
 
 
