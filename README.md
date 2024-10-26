@@ -70,7 +70,12 @@ npm run server
 cd .\app\client\
 ```
 
-6. Start the frontend server:
+6. Install dependencies:
+```bash
+npm install
+```
+
+7. Start the frontend server:
 ```bash
 npm start
 ```
