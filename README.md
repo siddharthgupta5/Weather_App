@@ -54,7 +54,7 @@ cd .\app\backend\
 npm install
 ```
 
-3. Create a .env file
+3. Update the .env file
 ```js
 PORT=...
 MONGO_DB_URI=...
