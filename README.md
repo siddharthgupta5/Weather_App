@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a Weather Monitoring System that tracks weather data for different cities, allowing users to set temperature thresholds and receive alerts if the threshold is exceeded for two consecutive API calls (3 minutes apart).
+This project is a Weather Monitoring System that tracks weather data for different cities, allowing users to set temperature thresholds and receive alerts if the threshold is exceeded for two consecutive API calls (3 minutes apart). The time duration, threshold condition, threshold values and continuous alerts all are user-configurable and can be modified.
 
 This is a real-time data processing system to monitor weather conditions and provide summarized insights using rollups and aggregates. The system will utilize data from the OpenWeatherMap API (https://openweathermap.org/).
 
